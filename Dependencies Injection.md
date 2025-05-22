@@ -86,6 +86,11 @@ open class DatabaseThingie {
         println("Mengambil data dari database asli.")
     }
 }
+
+fun main() {
+    val example = Example()
+    example.doStuff()
+}
 ```
 Penjelasan:
 - Class ini punya dua constructor:
