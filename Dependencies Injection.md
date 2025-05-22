@@ -5,8 +5,7 @@
 ---
 
 ## 🔍 Apa Itu Dependency Injection?
-
-> **Memberikan sebuah objek dependency-nya (variabel yang dibutuhkan) dari luar, bukan membuatnya sendiri.**
+**Memberikan sebuah objek dependency-nya (variabel yang dibutuhkan) dari luar, bukan membuatnya sendiri.**
 
 
 
