@@ -91,7 +91,7 @@ class Car(private val engine: Engine) {
     }
 }
 
-fun main(args: Array) {
+fun main(args: Array<String>){
     val engine = Engine()
     val car = Car(engine)
     car.start()
@@ -126,7 +126,7 @@ class Car {
     }
 }
 
-fun main(args: Array) {
+fun main(args: Array<String>){
     val car = Car()
     car.engine = Engine()
     car.start()
