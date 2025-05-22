@@ -37,6 +37,7 @@ open class DatabaseThingie {
         println("Mengambil data dari database asli.")
     }
 }
+```
 
 # 🧩 Part 2: Dependency Injection – Versi Lebih Fleksibel
 
@@ -78,25 +79,19 @@ open class DatabaseThingie {
         println("Mengambil data dari database asli.")
     }
 }
+```
 
 
----
-
-## 📄 `Part3.md` – Dependency Injection untuk Testing
-
-```markdown
 # 🧪 Part 3: Dependency Injection untuk Pengujian (Testing)
 
 Salah satu alasan utama kita menggunakan Dependency Injection adalah agar kode **mudah diuji**. Dengan menyuntikkan dependency, kita bisa menggantinya dengan **mock object** saat pengujian.
 
----
 
 ## 🎯 Tujuan
 
 - Menyuntikkan dependency palsu (mock) ke dalam class untuk memastikan perilakunya sesuai harapan.
 - Memastikan bahwa metode tertentu benar-benar dipanggil saat program dijalankan.
 
----
 
 ## 🧱 Contoh Kode Kotlin
 
@@ -141,5 +136,6 @@ fun testDoStuff() {
     mockDatabase.assertGetDataWasCalled()
     println("✅ Test berhasil: getData() memang dipanggil.")
 }
+```
 
 
