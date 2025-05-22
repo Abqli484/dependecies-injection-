@@ -19,7 +19,7 @@ Itu saja!
 
 ---
 
-### 🧩 Part 1: Tanpa Dependency Injection (Hard-coded Dependency)
+# 🧩 Part 1: Tanpa Dependency Injection (Hard-coded Dependency)
 
 Di dalam sebuah class, biasanya kita punya beberapa variabel yang dipakai buat menjalankan metode-metodenya. Kita sebut aja variabel-variabel ini sebagai “dependensi”. Kebanyakan orang sih nyebutnya “variabel” atau kalau mau kerenan, “instance variable”.
 
