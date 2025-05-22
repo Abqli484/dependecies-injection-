@@ -38,6 +38,33 @@ Dalam pemrograman, kelas-kelas sering kali membutuhkan referensi ke kelas lain. 
 Dengan DI, Anda *menyediakan* dependensi yang dibutuhkan oleh sebuah kelas dari luar, bukan membiarkan kelas tersebut mencarinya sendiri.
 
 ---
+## Contoh Penggunaan Dependency Injection
 
-> **Catatan:**  
-> Di Android, beberapa kelas seperti `Activity` dan `Fragment` diinstansiasi langsung oleh sistem, sehingga tidak memungkinkan menggunakan *constructor injection*. Dalam kasus seperti ini, kita menggunakan pendekatan lain seperti *field injection* atau *method injection*.
+### Tanpa Dependency Injection
+
+Berikut contoh representasi kelas `Car` yang membuat sendiri dependensi `Engine`:
+
+```kotlin
+class Car {
+
+    private val engine = Engine()
+
+    fun start() {
+        engine.start()
+    }
+}
+
+fun main(args: Array<String>) {
+    val car = Car()
+    car.start()
+}
+```
+📌 Mengapa ini bukan Dependency Injection?
+
+Karena kelas Car membuat sendiri objek Engine, maka ini bukan dependency injection. Hal ini bisa menimbulkan beberapa masalah:
+
+1. **Tightly Coupled**
+Car dan Engine menjadi terlalu bergantung satu sama lain. Misalnya, jika ingin menggunakan ElectricEngine, Anda harus membuat kelas Car baru. Ini menyulitkan untuk mengganti atau mengembangkan.
+
+2. **Sulit untuk Pengujian**
+Karena Car membuat instance nyata dari Engine, Anda tidak bisa dengan mudah mengganti Engine dengan versi mock atau fake untuk keperluan testing.
