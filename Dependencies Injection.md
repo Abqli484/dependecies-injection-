@@ -40,7 +40,12 @@ open class DatabaseThingie {
     }
 }
 ```
-Di sini kita punya sebuah variabel (atau dependensi) bernama myDatabase. Kita bikin sendiri di constructor-nya.
+Penjelasan:
+Di sini myDatabase adalah instance variable.
+
+Objek DatabaseThingie() langsung dibuat di dalam class.
+
+Sulit untuk mengganti myDatabase dengan versi lain saat testing karena class ini bergantung langsung pada implementasi DatabaseThingie.
 
 # 🧩 Part 2: Dependency Injection – Versi Lebih Fleksibel
 
