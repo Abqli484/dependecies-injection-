@@ -64,13 +64,13 @@ fun main(args: Array<String>) {
 Karena kelas Car membuat sendiri objek Engine, maka ini bukan dependency injection. Hal ini bisa menimbulkan beberapa masalah:
 
 1. **Tightly Coupled**
-Car dan Engine menjadi terlalu bergantung satu sama lain. Misalnya, jika ingin menggunakan ElectricEngine, Anda harus membuat kelas Car baru. Ini menyulitkan untuk mengganti atau mengembangkan.
+`Car` dan `Engine` menjadi terlalu bergantung satu sama lain. Misalnya, jika ingin menggunakan ElectricEngine, Anda harus membuat kelas Car baru. Ini menyulitkan untuk mengganti atau mengembangkan.
 
 2. **Sulit untuk Pengujian**
-Karena Car membuat instance nyata dari Engine, Anda tidak bisa dengan mudah mengganti Engine dengan versi mock atau fake untuk keperluan testing.
+Karena `Car` membuat instance nyata dari `Engine`, Anda tidak bisa dengan mudah mengganti `Engine` dengan versi mock atau fake untuk keperluan testing.
 
 ### Dengan Dependency Injection (Constructor Injection)
-Dengan DI, Anda menyediakan objek Engine dari luar ke konstruktor Car:
+Dengan DI, Anda menyediakan objek `Engine` dari luar ke konstruktor `Car`:
 
 ```kotlin
 class Car(private val engine: Engine) {
@@ -85,4 +85,11 @@ fun main(args: Array) {
     car.start()
 }
 ```
-Fungsi main menggunakan Car. Karena Car bergantung pada Engine, aplikasi membuat instance dari Engine terlebih dahulu, lalu menggunakannya untuk membuat instance dari Car.
+Fungsi main menggunakan `Car`. Karena `Car` bergantung pada `Engine`, aplikasi membuat instance dari `Engine` terlebih dahulu, lalu menggunakannya untuk membuat instance dari `Car`.
+✅ Keuntungan Pendekatan Ini:
+
+1. Reusabilitas Kelas Car
+Anda bisa mengirimkan berbagai implementasi Engine ke dalam Car. Contoh: ElectricEngine, GasEngine, dll. Car tetap berfungsi tanpa perlu diubah.
+
+2. Mudah Diuji
+Anda bisa memberikan test double seperti FakeEngine untuk pengujian unit test.
