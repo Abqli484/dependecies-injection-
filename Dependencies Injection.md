@@ -41,11 +41,10 @@ open class DatabaseThingie {
 }
 ```
 Penjelasan:
-Di sini myDatabase adalah instance variable.
 
-Objek DatabaseThingie() langsung dibuat di dalam class.
-
-Sulit untuk mengganti myDatabase dengan versi lain saat testing karena class ini bergantung langsung pada implementasi DatabaseThingie.
+- Di sini myDatabase adalah instance variable.
+- Objek DatabaseThingie() langsung dibuat di dalam class.
+- Sulit untuk mengganti myDatabase dengan versi lain saat testing karena class ini bergantung langsung pada implementasi DatabaseThingie.
 
 # 🧩 Part 2: Dependency Injection – Versi Lebih Fleksibel
 
