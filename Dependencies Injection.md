@@ -89,9 +89,9 @@ open class DatabaseThingie {
 ```
 Penjelasan:
 - Class ini punya dua constructor:
-a. Satu membuat DatabaseThingie sendiri (default).
-b. Satu lagi menerima objek dari luar (dependency injection).
-c. Lebih fleksibel: bisa digunakan untuk testing, konfigurasi runtime, dll.
+-- Satu membuat DatabaseThingie sendiri (default).
+-- Satu lagi menerima objek dari luar (dependency injection).
+- Lebih fleksibel: bisa digunakan untuk testing, konfigurasi runtime, dll.
 
 
 # 🧪 Part 3: Dependency Injection untuk Pengujian (Testing)
@@ -149,5 +149,11 @@ fun testDoStuff() {
     println("✅ Test berhasil: getData() memang dipanggil.")
 }
 ```
+Penjelasan:
+- MockDatabase menggantikan DatabaseThingie saat testing.
+- Kita inject mock itu ke dalam class Example.
+- Setelah doStuff() dijalankan, kita bisa cek apakah getData() benar-benar dipanggil atau tidak.
+
+
 
 
