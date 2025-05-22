@@ -89,10 +89,9 @@ open class DatabaseThingie {
 ```
 Penjelasan:
 - Class ini punya dua constructor:
--- Satu membuat DatabaseThingie sendiri (default).
--- Satu lagi menerima objek dari luar (dependency injection).
+  - Satu membuat DatabaseThingie sendiri (default).
+  - Satu lagi menerima objek dari luar (dependency injection).
 - Lebih fleksibel: bisa digunakan untuk testing, konfigurasi runtime, dll.
-
 
 # 🧪 Part 3: Dependency Injection untuk Pengujian (Testing)
 
