@@ -86,10 +86,11 @@ fun main(args: Array) {
 }
 ```
 Fungsi main menggunakan `Car`. Karena `Car` bergantung pada `Engine`, aplikasi membuat instance dari `Engine` terlebih dahulu, lalu menggunakannya untuk membuat instance dari `Car`.
+
 ✅ Keuntungan Pendekatan Ini:
 
-1. Reusabilitas Kelas Car
-Anda bisa mengirimkan berbagai implementasi Engine ke dalam Car. Contoh: ElectricEngine, GasEngine, dll. Car tetap berfungsi tanpa perlu diubah.
+1. Reusabilitas Kelas `Car`
+Anda bisa mengirimkan berbagai implementasi Engine ke dalam `Car`. Contoh: ElectricEngine, GasEngine, dll. Car tetap berfungsi tanpa perlu diubah.
 
 2. Mudah Diuji
 Anda bisa memberikan test double seperti FakeEngine untuk pengujian unit test.
