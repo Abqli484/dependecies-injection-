@@ -94,3 +94,24 @@ Anda bisa mengirimkan berbagai implementasi Engine ke dalam `Car`. Contoh: Elect
 
 2. Mudah Diuji
 Anda bisa memberikan test double seperti FakeEngine untuk pengujian unit test.
+
+### Alternatif Dependency Injection (Field Injection (Setter Injection))
+Beberapa kelas framework Android seperti activity dan fragment diinstansiasi oleh sistem, sehingga constructor injection tidak memungkinkan. 
+
+Dengan field injection, dependensi diinisialisasi setelah objek kelas dibuat. Kodenya akan terlihat seperti ini:
+
+```kotlin
+class Car {
+    lateinit var engine: Engine
+
+    fun start() {
+        engine.start()
+    }
+}
+
+fun main(args: Array) {
+    val car = Car()
+    car.engine = Engine()
+    car.start()
+}
+```
