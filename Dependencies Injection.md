@@ -55,11 +55,6 @@ Pada bagian ini, kita akan melihat bagaimana **Dependency Injection (DI)** membu
 ## 💡 Tujuan
 
 Membuat class kita lebih **terbuka untuk modifikasi dan pengujian**, tanpa harus mengubah kode internalnya setiap kali ada perubahan dependency.
-
----
-
-## 🧱 Contoh Kode Kotlin
-
 ```kotlin
 class Example {
     private val myDatabase: DatabaseThingie
@@ -96,15 +91,9 @@ Penjelasan:
 # 🧪 Part 3: Dependency Injection untuk Pengujian (Testing)
 
 Salah satu alasan utama kita menggunakan Dependency Injection adalah agar kode **mudah diuji**. Dengan menyuntikkan dependency, kita bisa menggantinya dengan **mock object** saat pengujian.
-
-
 ## 🎯 Tujuan
-
 - Menyuntikkan dependency palsu (mock) ke dalam class untuk memastikan perilakunya sesuai harapan.
 - Memastikan bahwa metode tertentu benar-benar dipanggil saat program dijalankan.
-
-
-## 🧱 Contoh Kode Kotlin
 
 ```kotlin
 // Dependency asli
