@@ -45,6 +45,12 @@ Dengan DI, Anda *menyediakan* dependensi yang dibutuhkan oleh sebuah kelas dari 
 Berikut contoh representasi kelas `Car` yang membuat sendiri dependensi `Engine`:
 
 ```kotlin
+class Engine {
+    fun start() {
+        println("Engine started.")
+    }
+}
+
 class Car {
 
     private val engine = Engine()
@@ -73,6 +79,12 @@ Karena `Car` membuat instance nyata dari `Engine`, Anda tidak bisa dengan mudah 
 Dengan DI, Anda menyediakan objek `Engine` dari luar ke konstruktor `Car`:
 
 ```kotlin
+class Engine {
+    fun start() {
+        println("Engine started.")
+    }
+}
+
 class Car(private val engine: Engine) {
     fun start() {
         engine.start()
@@ -100,6 +112,12 @@ Beberapa kelas framework Android seperti activity dan fragment diinstansiasi ole
 Dengan field injection, dependensi diinisialisasi setelah objek kelas dibuat. Kodenya akan terlihat seperti ini:
 
 ```kotlin
+class Engine {
+    fun start() {
+        println("Engine started.")
+    }
+}
+
 class Car {
     lateinit var engine: Engine
 
