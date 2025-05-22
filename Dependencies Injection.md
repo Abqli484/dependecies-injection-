@@ -1,7 +1,6 @@
 # 🧩 Dependency Injection: Penjelasan Sederhana dengan Kotlin
 
 📅 Berdasarkan artikel *Dependency Injection Demystified (2006)*  
-📝 Ditulis ulang dan diterjemahkan oleh [Nama Kamu]
 
 ---
 
@@ -79,4 +78,68 @@ open class DatabaseThingie {
         println("Mengambil data dari database asli.")
     }
 }
+
+
+---
+
+## 📄 `Part3.md` – Dependency Injection untuk Testing
+
+```markdown
+# 🧪 Part 3: Dependency Injection untuk Pengujian (Testing)
+
+Salah satu alasan utama kita menggunakan Dependency Injection adalah agar kode **mudah diuji**. Dengan menyuntikkan dependency, kita bisa menggantinya dengan **mock object** saat pengujian.
+
+---
+
+## 🎯 Tujuan
+
+- Menyuntikkan dependency palsu (mock) ke dalam class untuk memastikan perilakunya sesuai harapan.
+- Memastikan bahwa metode tertentu benar-benar dipanggil saat program dijalankan.
+
+---
+
+## 🧱 Contoh Kode Kotlin
+
+```kotlin
+// Dependency asli
+open class DatabaseThingie {
+    open fun getData() {
+        println("Mengambil data dari database asli.")
+    }
+}
+
+// Mock untuk testing
+class MockDatabase : DatabaseThingie() {
+    var wasGetDataCalled = false
+
+    override fun getData() {
+        wasGetDataCalled = true
+        println("Mock: getData() dipanggil.")
+    }
+
+    fun assertGetDataWasCalled() {
+        check(wasGetDataCalled) { "getData() tidak dipanggil!" }
+    }
+}
+
+// Class yang diuji
+class Example(private val myDatabase: DatabaseThingie = DatabaseThingie()) {
+    fun doStuff() {
+        println("Mulai doStuff()...")
+        myDatabase.getData()
+        println("Selesai doStuff()")
+    }
+}
+
+// Fungsi testing manual
+fun testDoStuff() {
+    val mockDatabase = MockDatabase()
+    val example = Example(mockDatabase)
+
+    example.doStuff()
+
+    mockDatabase.assertGetDataWasCalled()
+    println("✅ Test berhasil: getData() memang dipanggil.")
+}
+
 
