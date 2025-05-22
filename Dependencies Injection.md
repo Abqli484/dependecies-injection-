@@ -68,3 +68,21 @@ Car dan Engine menjadi terlalu bergantung satu sama lain. Misalnya, jika ingin m
 
 2. **Sulit untuk Pengujian**
 Karena Car membuat instance nyata dari Engine, Anda tidak bisa dengan mudah mengganti Engine dengan versi mock atau fake untuk keperluan testing.
+
+### Dengan Dependency Injection (Constructor Injection)
+Dengan DI, Anda menyediakan objek Engine dari luar ke konstruktor Car:
+
+```kotlin
+class Car(private val engine: Engine) {
+    fun start() {
+        engine.start()
+    }
+}
+
+fun main(args: Array) {
+    val engine = Engine()
+    val car = Car(engine)
+    car.start()
+}
+```
+Fungsi main menggunakan Car. Karena Car bergantung pada Engine, aplikasi membuat instance dari Engine terlebih dahulu, lalu menggunakannya untuk membuat instance dari Car.
