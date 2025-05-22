@@ -128,7 +128,7 @@ class Car {
 
 fun main(args: Array<String>){
     val car = Car()
-    car.engine = Engine()
+    car.engine = Engine() // setter injection
     car.start()
 }
 ```
