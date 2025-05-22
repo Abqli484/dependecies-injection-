@@ -93,7 +93,7 @@ class Car(private val engine: Engine) {
 
 fun main(args: Array<String>){
     val engine = Engine()
-    val car = Car(engine)
+    val car = Car(engine) // DI lewat constructor
     car.start()
 }
 ```
